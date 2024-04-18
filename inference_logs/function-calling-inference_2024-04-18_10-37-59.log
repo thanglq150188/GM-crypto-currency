@@ -1,0 +1,53 @@
+2024-04-18:10:38:02,889 INFO     [functioncall.py:25] None
+2024-04-18:10:39:24,887 INFO     [functioncall.py:53] MistralConfig {
+  "_name_or_path": "NousResearch/Hermes-2-Pro-Mistral-7B",
+  "architectures": [
+    "MistralForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 32000,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 32768,
+  "model_type": "mistral",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "rms_norm_eps": 1e-05,
+  "rope_theta": 10000.0,
+  "sliding_window": 4096,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.39.3",
+  "use_cache": false,
+  "vocab_size": 32032
+}
+
+2024-04-18:10:39:24,894 INFO     [functioncall.py:54] GenerationConfig {
+  "bos_token_id": 1,
+  "do_sample": true,
+  "eos_token_id": 32000
+}
+
+2024-04-18:10:39:24,898 INFO     [functioncall.py:55] {'bos_token': '<s>', 'eos_token': '<|im_end|>', 'unk_token': '<unk>', 'pad_token': '<|im_end|>'}
+2024-04-18:10:39:34,879 INFO     [functioncall.py:65] parsed tool calls:
+[
+  {
+    "arguments": {
+      "symbol": "TSLA"
+    },
+    "name": "get_current_stock_price"
+  }
+]
+2024-04-18:10:39:34,883 INFO     [functioncall.py:118] Assistant Message:
+<tool_call>
+{"arguments": {"symbol": "TSLA"}, "name": "get_current_stock_price"}
+</tool_call>
+2024-04-18:10:39:34,884 INFO     [functioncall.py:79] Invoking function call get_current_stock_price ...
+2024-04-18:10:39:35,662 INFO     [functioncall.py:126] Here's the response from the function call: get_current_stock_price
+{"name": "get_current_stock_price", "content": 155.45}
+2024-04-18:10:39:40,387 INFO     [functioncall.py:155] Assistant Message:
+The current stock price of Tesla (TSLA) is $155.45. This information was obtained from the get_current_stock_price function call. Now let's proceed with more detailed analysis on Tesla. What particular aspect of the company would you like me to focus on? We could analyze their financials, news, or stock performance over time.
