@@ -1,0 +1,15 @@
+2024-04-25:17:32:42,727 INFO     [sample_function_callings.py:44] <|im_start|>system
+You are a function calling AI agent with self-recursion. You can call only one function at a time and analyse data you get from function response. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-25. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: str) -> dict | str - Get balance of a user.\n    \n    Args:\n        user_id (str): The id of the user.', 'parameters': {'type': 'object', 'properties': {'user_id': {'type': 'string'}}, 'required': ['user_id']}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: str, input_amount: int, output_symbol: str) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (str): The input symbol to convert\n        input_amount (str): The input amount to convert\n        output_symbol (str): The output symbol to convert', 'parameters': {'type': 'object', 'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol']}}}, {'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: str, localtion: str) -> dict | str - Get weather\n    \n    Args:\n        date (str): Date to get weather for\n        location (str): Location to get weather for', 'parameters': {'type': 'object', 'properties': {'date': {'type': 'string'}, 'localtion': {'type': 'string'}}, 'required': ['date', 'localtion']}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDT<|im_end|>
+<|im_start|>assistant
+
+2024-04-25:17:32:44,601 INFO     [sample_function_callings.py:73] <tool_call>
+{"arguments": {"input_symbol": "USDT", "input_amount": 10, "output_symbol": "BTC"}, "name": "swap_token"}
+</tool_call>
+

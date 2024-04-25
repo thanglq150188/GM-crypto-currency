@@ -30,7 +30,7 @@ if tokenizer.chat_template is None:
     print("No chat template defined, getting chat_template...")
     tokenizer.chat_template = get_chat_template(chat_template)
     
-chat = [{"role": "user", "content": "What is bitcoin ?"}]
+chat = [{"role": "user", "content": "Swap USDT to SOL"}]
 tools = itf.get_openai_tools()
 prompt = prompter.generate_prompt(chat, tools, num_fewshot=None)
 
@@ -59,13 +59,26 @@ completion = client.completions.create(
     prompt=template_prompt,
     max_tokens=1500,
     temperature=0.0,
+    n=1,
     stream=False
 )
 
-assistant_message = completion.choices[0].text
-validation, tool_calls, error_message = validate_and_extract_tool_calls(assistant_message)
+# for chunk in completion:
+#     import json
 
-inference_logger.info('COMPLETION:')
-inference_logger.info(f'validation: {validation}')
-inference_logger.info(f'tool_calls = {tool_calls}')
-inference_logger.info(f'error message = {error_message}')
+#     # Assuming you have the ChatCompletionChunk object stored in a variable called `chunk`
+#     chunk_json = json.dumps(chunk, default=lambda o: o.__dict__, indent=2)
+#     inference_logger.info(chunk_json)
+
+response_json = json.dumps(completion, default=lambda o: o.__dict__, indent=2)
+
+inference_logger.info(response_json)
+
+
+# assistant_message = completion.choices[0].text
+# validation, tool_calls, error_message = validate_and_extract_tool_calls(assistant_message)
+
+# inference_logger.info('COMPLETION:')
+# inference_logger.info(f'validation: {validation}')
+# inference_logger.info(f'tool_calls = {tool_calls}')
+# inference_logger.info(f'error message = {error_message}')

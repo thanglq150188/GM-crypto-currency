@@ -38,7 +38,7 @@ class ModelInference:
             return_dict=True,
             quantization_config=self.bnb_config,
             torch_dtype=torch.float16,
-            attn_implementation="flash_attention_2",
+            # attn_implementation="flash_attention_2",
             device_map="auto",
         )
 
