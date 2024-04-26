@@ -30,8 +30,14 @@ if tokenizer.chat_template is None:
     print("No chat template defined, getting chat_template...")
     tokenizer.chat_template = get_chat_template(chat_template)
     
-chat = [{"role": "user", "content": "Swap USDT to SOL"}]
+chat = [{"role": "user", "content": "cuộc sống có giống cuộc đời ko"}]
 tools = itf.get_openai_tools()
+print('TOOLS----')
+for tool in tools:
+    from pprint import pprint
+    pprint(tool)
+    print()
+print('------')
 prompt = prompter.generate_prompt(chat, tools, num_fewshot=None)
 
 
@@ -41,14 +47,14 @@ template_prompt = tokenizer.apply_chat_template(
     tokenize=False
 )
 
-inference_logger.info(template_prompt)
+# inference_logger.info(template_prompt)
 
 
 from openai import OpenAI
 
 # Modify OpenAI's API key and API base to use vLLM's API server.
 openai_api_key = "EMPTY"
-openai_api_base = "https://gm-ai-model-api-dev.uslab.dev/v1"
+openai_api_base = "http://localhost:8000/v1"
 client = OpenAI(
     api_key=openai_api_key,
     base_url=openai_api_base,

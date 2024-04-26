@@ -1,0 +1,20 @@
+2024-04-26:01:05:07,951 INFO     [sample_function_callings.py:78] {
+  "id": "cmpl-c02158fd9f7e4737ab43a62470d6bff1",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "<tool_call>\nNone\n</tool_call>\n"
+    }
+  ],
+  "created": 1714068307,
+  "model": "llms/gm-01",
+  "object": "text_completion",
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 15,
+    "prompt_tokens": 693,
+    "total_tokens": 708
+  }
+}

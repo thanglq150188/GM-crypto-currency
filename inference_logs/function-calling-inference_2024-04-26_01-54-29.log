@@ -1,0 +1,435 @@
+2024-04-26:01:54:37,567 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+tomorrow weather at Moscow<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:01:54:51,841 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+cuộc sống có giống cuộc đời khum<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:01:58:25,012 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:01:58:31,244 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+swap 1000 usdt<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:01:59:41,070 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:01:59:43,243 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:01:59:45,278 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:01:59:47,226 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:00:48,809 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:00:51,149 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:02:25,727 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:02:27,837 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:02:44,762 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:02:46,901 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:02:50,162 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:03:20,043 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+get user balance (id: 12)<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:03:51,695 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+get user balance (id: 12) and swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:04:04,228 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+get user balance (id: 12) and swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:05:43,072 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+get user balance (id: 12) and swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:05:47,966 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+get user balance (id: 12) and swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:06:01,785 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+weather at paris and swap 10 USDC to ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:06:33,491 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+weather at PR and swap 10 USDC to ETH, (PR is HaNoi)<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:08:51,208 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+userid: 10, weather at PR and swap 10 USDC to ETH, (PR is HaNoi), get user balance<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:09:59,219 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string, output_amount: integer) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert\n        output_amount (integer): The output amount to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}, 'output_amount': {'type': 'integer'}}, 'required': ['input_symbol', 'input_amount', 'output_symbol', 'output_amount'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+userid: 10, weather at PR and swap USDC to 0.1 ETH, (PR is HaNoi), get user balance<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:10:37,764 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string, output_amount: integer) -> dict | str - Swap token of user, You must have input amount or output amount\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert\n        output_amount (integer): The output amount to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}, 'output_amount': {'type': 'integer'}}, 'required': ['input_symbol', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+userid: 10, weather at PR and swap USDC to 0.1 ETH, (PR is HaNoi), get user balance<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:12:32,945 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string, output_amount: integer) -> dict | str - Swap token of user, You must have either input amount or output amount to swap\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert\n        output_amount (integer): The output amount to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}, 'output_amount': {'type': 'integer'}}, 'required': ['input_symbol', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+userid: 10, weather at PR and swap USDC to 0.1 ETH, (PR is HaNoi), get user balance<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:12:44,961 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string, output_amount: integer) -> dict | str - Swap token of user, You must have either input amount or output amount to swap\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert\n        output_amount (integer): The output amount to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}, 'output_amount': {'type': 'integer'}}, 'required': ['input_symbol', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+userid: 10, weather at PR and swap USDC to 3 ETH, (PR is HaNoi), get user balance<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:13:37,739 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string, output_amount: integer) -> dict | str - Swap token of user, You must have either input amount or output amount to swap\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert\n        output_amount (integer): The output amount to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}, 'output_amount': {'type': 'integer'}}, 'required': ['input_symbol', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap USDC to 3 ETH<|im_end|>
+<|im_start|>assistant
+
+2024-04-26:02:15:18,640 INFO     [openai_hermes_entrypoint_api.py:60] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string, output_amount: integer) -> dict | str - Swap token of user, You must have either input amount or output amount to swap\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The input amount to convert\n        output_symbol (string): The output symbol to convert\n        output_amount (integer): The output amount to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}, 'output_amount': {'type': 'integer'}}, 'required': ['input_symbol', 'output_symbol'], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+Swap USDC to 3 ETH<|im_end|>
+<|im_start|>assistant
+

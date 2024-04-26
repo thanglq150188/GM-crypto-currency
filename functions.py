@@ -19,7 +19,7 @@ def get_balance(user_id: str) -> dict | str:
     Get balance of a user.
     
     Args:
-        user_id (str): The id of the user.
+        user_id (str): The id of the user. Default is 'UNK'
     """
     pass
 

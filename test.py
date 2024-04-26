@@ -1,36 +1,63 @@
-import json
-import aiohttp
-import asyncio
 
-import requests
+import re
 
-url = 'http://127.0.0.1:8000/'
-async def get_json_events():
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as resp:
-            while True:
-                chunk = await resp.content.readline()
-                await asyncio.sleep(1)  # artificially long delay
+def transform_dict(input_dict):
+    function_dict = input_dict['function']
+    description = function_dict['description']
+    name = function_dict['name']
+    parameters = function_dict['parameters']
 
-                if not chunk:
-                    break
-                yield json.loads(chunk.decode("utf-8"))
+    # Transform the function name
+    name = re.sub(r'[-_]', '_', name)
 
+    # Transform the parameter types
+    for prop, value in parameters['properties'].items():
+        if value['type'] == 'number':
+            value['type'] = 'integer'
 
-async def main():
-    async for event in get_json_events():
-        print(event)
+    # Generate the function description
+    param_descriptions = []
+    for prop, value in parameters['properties'].items():
+        param_desc = f"{prop} ({value['type']}): {value.get('description', 'No description')}"
+        param_descriptions.append(param_desc)
 
+    param_str = '\n'.join([f"        {desc}" for desc in param_descriptions])
+    func_description = f"{name}({', '.join([f'{prop}: {value['type']}' for prop, value in parameters['properties'].items()])}) -> dict | str - {description}\n    \n    Args:\n{param_str}"
 
-asyncio.run(main())
+    # Remove the 'description' key from parameters['properties']
+    for prop in parameters['properties']:
+        parameters['properties'][prop].pop('description', None)
+        
+    # Update the function dictionary
+    function_dict['description'] = func_description
+    function_dict['name'] = name
+    function_dict['parameters'] = {
+        'properties': parameters['properties'],
+        'required': parameters['required'],
+        'type': parameters['type']
+    }
 
+    return input_dict
 
+# Example usage
+input_dict = {
+    'function': {
+        'description': 'Swap token of user',
+        'name': 'swap-token',
+        'parameters': {
+            '$schema': 'http://json-schema.org/draft-07/schema#',
+            'additionalProperties': False,
+            'properties': {
+                'input_amount': {'description': 'The input amount to convert', 'type': 'number'},
+                'input_symbol': {'description': 'The input symbol to convert', 'type': 'string'},
+                'output_symbol': {'description': 'The output symbol to convert', 'type': 'string'}
+            },
+            'required': ['input_symbol', 'input_amount', 'output_symbol'],
+            'type': 'object'
+        }
+    }
+}
 
-def get_json_events_sync():
-    with requests.get(url, stream=True) as r:
-        for line in r.iter_lines():
-            yield json.loads(line.decode("utf-8"))
-
-
-for event in get_json_events_sync():
-    print(event)
+output_dict = transform_dict(input_dict)
+from pprint import pprint
+pprint(output_dict)

@@ -92,14 +92,19 @@ payload = {
     "messages": [
         {
             "role": "user",
-            "content": "What is bitcoin?"
+            "content": "can I get my balance info?"
         }
     ]
 }
 
-url = "http://localhost:8000"  # Replace with the appropriate URL of your FastAPI server
+import requests
+import json
 
-with requests.post(url, json=payload) as r:
-    import json
-    
-    print(json.loads(r.content.decode()))
+url = "https://gm-ai-model-api-dev.uslab.dev"  # Replace with the appropriate URL of your FastAPI server
+
+r = requests.post(url, json=payload)
+
+# Attempt to convert response to JSON
+j = r.json()
+
+print(j)
