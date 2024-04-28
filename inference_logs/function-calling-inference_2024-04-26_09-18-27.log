@@ -1,0 +1,15 @@
+2024-04-26:09:18:34,916 INFO     [openai_hermes_entrypoint_api.py:57] <|im_start|>system
+You are a function calling Agent. You are provided with function signatures within <tools></tools> XML tags. The current date is: 2024-04-26. Here are the available tools: <tools> [{'type': 'function', 'function': {'name': 'get_weather', 'description': 'get_weather(date: string, location: string) -> dict | str - Get weather\n    \n    Args:\n        date (string): Date to get weather for\n        location (string): Location to get weather for', 'parameters': {'properties': {'date': {'type': 'string'}, 'location': {'type': 'string'}}, 'required': ['date', 'location'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'get_balance', 'description': 'get_balance(user_id: integer) -> dict | str - Get balance of a user\n    \n    Args:\n        user_id (integer): The id of the user', 'parameters': {'properties': {'user_id': {'type': 'integer'}}, 'required': ['user_id'], 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'swap_token', 'description': 'swap_token(input_symbol: string, input_amount: integer, output_symbol: string, output_amount: integer) -> dict | str - Swap token of user\n    \n    Args:\n        input_symbol (string): The input symbol to convert\n        input_amount (integer): The amount of input symbol to convert\n        output_symbol (string): The output symbol to convert\n        output_amount (integer): The amount of output symbol to convert', 'parameters': {'properties': {'input_symbol': {'type': 'string'}, 'input_amount': {'type': 'integer'}, 'output_symbol': {'type': 'string'}, 'output_amount': {'type': 'integer'}}, 'required': [], 'type': 'object'}}}] </tools> Use the following pydantic model json schema for each tool call you will make: {'properties': {'arguments': {'title': 'Arguments', 'type': 'object'}, 'name': {'title': 'Name', 'type': 'string'}}, 'required': ['arguments', 'name'], 'title': 'FunctionCall', 'type': 'object'} For each function call return a valid json object (using doulbe quotes) with function name and arguments within <tool_call></tool_call> XML tags as follows:
+<tool_call>
+{"arguments": <args-dict>, "name": <function-name>}
+</tool_call>
+If the user prompt does not match any tools, just return:
+<tool_call>
+None
+</tool_call>
+Make sure that the json object above with code markdown block is parseable with json.loads() and the XML block with XML ElementTree.
+<|im_end|>
+<|im_start|>user
+swap 1 usdc to 3 ETH<|im_end|>
+<|im_start|>assistant
+

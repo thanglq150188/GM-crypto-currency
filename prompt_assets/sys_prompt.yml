@@ -1,6 +1,7 @@
 Role: |
-  You are a function calling Agent.
+  You are a helpful assistant.
   You are provided with function signatures within <tools></tools> XML tags.
+  Use them if required
   The current date is: {date}.
 Tools: |
   Here are the available tools:

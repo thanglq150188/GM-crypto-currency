@@ -1,63 +1,12 @@
+example = "USER: swap A to 100 B\nASSISTANT:\n<tool_call>\n{'arguments': {'input_symbol': 'A', 'input_amount': null, 'output_symbol': 'B', 'output_amount': 100}, 'name': 'swap_token'}\n</tool_call>"
 
-import re
-
-def transform_dict(input_dict):
-    function_dict = input_dict['function']
-    description = function_dict['description']
-    name = function_dict['name']
-    parameters = function_dict['parameters']
-
-    # Transform the function name
-    name = re.sub(r'[-_]', '_', name)
-
-    # Transform the parameter types
-    for prop, value in parameters['properties'].items():
-        if value['type'] == 'number':
-            value['type'] = 'integer'
-
-    # Generate the function description
-    param_descriptions = []
-    for prop, value in parameters['properties'].items():
-        param_desc = f"{prop} ({value['type']}): {value.get('description', 'No description')}"
-        param_descriptions.append(param_desc)
-
-    param_str = '\n'.join([f"        {desc}" for desc in param_descriptions])
-    func_description = f"{name}({', '.join([f'{prop}: {value['type']}' for prop, value in parameters['properties'].items()])}) -> dict | str - {description}\n    \n    Args:\n{param_str}"
-
-    # Remove the 'description' key from parameters['properties']
-    for prop in parameters['properties']:
-        parameters['properties'][prop].pop('description', None)
-        
-    # Update the function dictionary
-    function_dict['description'] = func_description
-    function_dict['name'] = name
-    function_dict['parameters'] = {
-        'properties': parameters['properties'],
-        'required': parameters['required'],
-        'type': parameters['type']
+origin_examples = [
+    {
+        "example": "```\nSYSTEM: You are a helpful assistant who has access to functions. Use them if required\n<tools>[\n {\n \"name\": \"calculate_distance\",\n \"description\": \"Calculate the distance between two locations\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {\n \"origin\": {\n \"type\": \"string\",\n \"description\": \"The starting location\"\n },\n \"destination\": {\n \"type\": \"string\",\n \"description\": \"The destination location\"\n },\n \"mode\": {\n \"type\": \"string\",\n \"description\": \"The mode of transportation\"\n }\n },\n \"required\": [\n \"origin\",\n \"destination\",\n \"mode\"\n ]\n }\n },\n {\n \"name\": \"generate_password\",\n \"description\": \"Generate a random password\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {\n \"length\": {\n \"type\": \"integer\",\n \"description\": \"The length of the password\"\n }\n },\n \"required\": [\n \"length\"\n ]\n }\n }\n]\n\n</tools>\nUSER: Hi, I need to know the distance from New York to Los Angeles by car.\nASSISTANT:\n<tool_call>\n{\"arguments\": {\"origin\": \"New York\",\n \"destination\": \"Los Angeles\", \"mode\": \"car\"}, \"name\": \"calculate_distance\"}\n</tool_call>\n```\n"
+    },
+    {
+        "example": "```\nSYSTEM: You are a helpful assistant with access to functions. Use them if required\n<tools>[\n {\n \"name\": \"calculate_distance\",\n \"description\": \"Calculate the distance between two locations\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {\n \"origin\": {\n \"type\": \"string\",\n \"description\": \"The starting location\"\n },\n \"destination\": {\n \"type\": \"string\",\n \"description\": \"The destination location\"\n },\n \"mode\": {\n \"type\": \"string\",\n \"description\": \"The mode of transportation\"\n }\n },\n \"required\": [\n \"origin\",\n \"destination\",\n \"mode\"\n ]\n }\n },\n {\n \"name\": \"generate_password\",\n \"description\": \"Generate a random password\",\n \"parameters\": {\n \"type\": \"object\",\n \"properties\": {\n \"length\": {\n \"type\": \"integer\",\n \"description\": \"The length of the password\"\n }\n },\n \"required\": [\n \"length\"\n ]\n }\n }\n]\n\n</tools>\nUSER: Can you help me generate a random password with a length of 8 characters?\nASSISTANT:\n<tool_call>\n{\"arguments\": {\"length\": 8}, \"name\": \"generate_password\"}\n</tool_call>\n```"
     }
+]
 
-    return input_dict
-
-# Example usage
-input_dict = {
-    'function': {
-        'description': 'Swap token of user',
-        'name': 'swap-token',
-        'parameters': {
-            '$schema': 'http://json-schema.org/draft-07/schema#',
-            'additionalProperties': False,
-            'properties': {
-                'input_amount': {'description': 'The input amount to convert', 'type': 'number'},
-                'input_symbol': {'description': 'The input symbol to convert', 'type': 'string'},
-                'output_symbol': {'description': 'The output symbol to convert', 'type': 'string'}
-            },
-            'required': ['input_symbol', 'input_amount', 'output_symbol'],
-            'type': 'object'
-        }
-    }
-}
-
-output_dict = transform_dict(input_dict)
-from pprint import pprint
-pprint(output_dict)
+print(example)

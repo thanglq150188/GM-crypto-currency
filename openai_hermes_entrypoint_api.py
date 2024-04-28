@@ -44,12 +44,11 @@ async def function_calling_router(data):
     
     tools = [transform_dict(tool) for tool in tools]
     
-    for tool in tools:
-        print(tools)
+    inference_logger.info(tools)
     
     messages = data.get("messages")
     
-    prompt = prompter.generate_prompt(messages, tools, num_fewshot=None)
+    prompt = prompter.generate_prompt(messages, tools, num_fewshot=1)
     
     template_prompt = tokenizer.apply_chat_template(
         prompt,
@@ -81,6 +80,8 @@ async def receive_data(request: Request):
     response = await function_calling_router(data)
     
     assistant_message = response['choices'][0]['text']
+    
+    inference_logger.info(assistant_message)
     
     validation_result, tool_calls, error_message = validate_and_extract_tool_calls(assistant_message)
     
